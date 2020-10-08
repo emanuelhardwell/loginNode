@@ -1,0 +1,15 @@
+npm init --yes    ---> inicia un proyecto de NodeJS
+
+npm i express      ---> framework javaScipt
+        mongoose   ---> biblioteca para conectarme a MongoDB
+        ejs-mate    ---> motor de plantillas
+        connect-flash   ---> nod permite enviar mensaje entre multiples paginas
+        morgan      ---> log que nos muestra las peticiones
+
+=== modulos principales
+        passport    ---> nos permite la autenticación, ademas podemos hacer autonticacion con google, facebook, ect
+        passport-local  ---> autonticación desde nuestro propio servidor
+        bcrypt-nodejs            ---> cifrar contraseña
+
+=== modulo extra para reiniciar el servidor ===
+npm i nodemon -D   ---> para instalarlo de manera Dev Dependencies
