@@ -9,6 +9,9 @@ const morgan = require("morgan");
 
 const app = express();
 
+//initialization
+require("./database");
+
 // setting
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", engine);
