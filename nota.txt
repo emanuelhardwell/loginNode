@@ -13,3 +13,6 @@ npm i express      ---> framework javaScipt
 
 === modulo extra para reiniciar el servidor ===
 npm i nodemon -D   ---> para instalarlo de manera Dev Dependencies
+
+
+npm i express-session  
