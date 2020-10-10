@@ -41,3 +41,29 @@ passport.use(
     }
   )
 );
+
+/* verificar contraseña */
+passport.use(
+  "local-signup",
+  new localStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+      passReqToCallback: true,
+    },
+    async (req, email, password, done) => {
+      const user = await User.findOne({ email: email });
+      if (!user) {
+        return done(null, false, req.flash("signinMessage", "User not found "));
+      }
+      if (!user.comparePassword(password)) {
+        return done(
+          null,
+          false,
+          req.flash("signMessage", "Password is incorrect")
+        );
+      }
+      done(null, user);
+    }
+  )
+);
