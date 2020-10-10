@@ -42,6 +42,7 @@ app.use(passport.session());
 // se guarda en una variable local para que se pueda utilizar donde sea
 app.use((req, res, next) => {
   app.locals.signupMessage = req.flash("signupMessage");
+  app.locals.signinMessage = req.flash("signinMessage");
   next();
 });
 

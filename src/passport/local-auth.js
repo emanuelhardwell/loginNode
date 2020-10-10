@@ -24,7 +24,7 @@ passport.use(
     },
     async (req, email, password, done) => {
       //validar que el correo sea unico
-      const user = User.findOne({ email: email });
+      const user = await User.findOne({ email: email });
       if (user) {
         return done(
           null,
@@ -44,7 +44,7 @@ passport.use(
 
 /* verificar contraseña */
 passport.use(
-  "local-signup",
+  "local-signin",
   new localStrategy(
     {
       usernameField: "email",
@@ -60,7 +60,7 @@ passport.use(
         return done(
           null,
           false,
-          req.flash("signMessage", "Password is incorrect")
+          req.flash("signinMessage", "Password is incorrect")
         );
       }
       done(null, user);

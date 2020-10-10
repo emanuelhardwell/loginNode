@@ -15,6 +15,17 @@
     <nav class="navbar navbar-dark bg-dark mb-4">
       <a class="navbar-brand" href="/"> Home</a>
     </nav>
+
+    <!--  -->
+    <% if(signupMessage) { %>
+    <div><%= signupMessage %></div>
+    <% } %>
+
+    <!--  -->
+    <% if(signinMessage) { %>
+    <div><%= signinMessage %></div>
+    <% } %>
+
     <!--  -->
     <%- body %>
   </body>
