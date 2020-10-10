@@ -23,11 +23,21 @@ passport.use(
       passReqToCallback: true,
     },
     async (req, email, password, done) => {
-      const user = new User();
-      user.email = email;
-      user.password = password;
-      await user.save();
-      done(null, user); /* el "user" es el objeto final */
+      //validar que el correo sea unico
+      const user = User.findOne({ email: email });
+      if (user) {
+        return done(
+          null,
+          false,
+          req.flash("signupMessage", "The email is already taken")
+        );
+      } else {
+        const newUser = new User();
+        newUser.email = email;
+        newUser.password = newUser.encryptPassword(password); /*  */
+        await newUser.save();
+        done(null, newUser); /* el "user" es el objeto final */
+      }
     }
   )
 );

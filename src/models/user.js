@@ -10,10 +10,12 @@ const userSchema = new Schema({
   password: String,
 });
 
-userSchema.method.encryptPassword = (password) =>
-  bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+userSchema.methods.encryptPassword = (password) => {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+};
 
-userSchema.method.comparePassword = (password) =>
-  bcrypt.compareSync(password, this.password);
+userSchema.methods.comparePassword = (password) => {
+  return bcrypt.compareSync(password, this.password);
+};
 
 module.exports = mongoose.model("users", userSchema);

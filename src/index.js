@@ -8,6 +8,7 @@ const path = require("path");
 const morgan = require("morgan");
 const passport = require("passport");
 const session = require("express-session");
+const flash = require("connect-flash");
 
 const app = express();
 
@@ -33,8 +34,16 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
+// se guarda en una variable local para que se pueda utilizar donde sea
+app.use((req, res, next) => {
+  app.locals.signupMessage = req.flash("signupMessage");
+  next();
+});
 
 // import Routes
 app.use("/", require("./routes/rutas"));

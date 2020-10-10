@@ -16,11 +16,16 @@
       <a class="navbar-brand" href="/"> Home</a>
     </nav>
     <!--  -->
+    <% if(signupMessage) { %>
+    <div><%= signupMessage %></div>
+    <% } %>
+    <!--  -->
+
     <div class="container p-4">
       <div class="row">
         <div class="col-md-6 mx-auto">
           <div class="card card-body">
-              <h5>SignUp</h5>
+            <h5>SignUp</h5>
             <form action="/signup" method="post">
               <div class="form-group">
                 <input
@@ -40,7 +45,9 @@
                   placeholder="password"
                 />
               </div>
-              <button type="submit" class="btn btn-success btn-block"> signup </button>
+              <button type="submit" class="btn btn-success btn-block">
+                signup
+              </button>
             </form>
           </div>
         </div>
