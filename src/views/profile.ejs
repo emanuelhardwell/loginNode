@@ -3,4 +3,17 @@
  -->
 <%- layout("./layouts/main.ejs") %>
 
-<h4>profile</h4>
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <div class="card card-header text-white bg-success">
+        <h5 class="mx-auto">Profile</h5>
+      </div>
+      <div class="card card-body">
+        <h5>Email: <%= user.email %></h5>
+        <h5>Password: <%= user.password %></h5>
+        <h5>ID: <%= user._id %></h5>
+      </div>
+    </div>
+  </div>
+</div>
